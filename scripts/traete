@@ -1,0 +1,27 @@
+#!/bin/bash
+
+host_dir="${2}"
+local_dir="${3}"
+
+# Incluir las definiciones de hosts
+"$HOME"/.local/bin/s_hosts
+
+# Obtener la dirección IP del host deseado
+host_ip="$(eval "echo \$$1")"
+
+# Verificar si el nombre de host proporcionado es válido
+if [ -z "$host_ip" ]; then
+    echo "Nombre de host inválido"
+    exit 1
+fi
+
+if [ -z "$host_dir" ]; then
+    exit 1
+fi
+
+if [ -z "$local_dir" ]; then
+    local_dir="./"
+fi
+
+# Copiar el archivo desde la máquina actual al host remoto
+scp -r "$host_ip":"$host_dir" "$local_dir"
