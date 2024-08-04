@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+
+    collabora:
+        image: collabora/code:latest
+        container_name: collabora
+        ports:
+            - "$PORT:9980"
+        restart: unless-stopped
+        environment:
+            # - extra_params=--o:ssl.enable=false
+          - domain=$DOMAIN
+          - username=$USERNAME
+          - password=$PASSWORD
+          - dictionaries=es_ES
+          - TZ=Europe/Madrid

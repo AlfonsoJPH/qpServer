@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  nextcloud:
+    restart: 'unless-stopped'
+    image: nextcloud
+    container_name: nextcloud
+    ports:
+      - "$PORT:80"
+    volumes:
+      - ./data:/var/www/html/
+      - type: tmpfs
+        target: /tmp:exec
+    environment:
+      - MYSQL_HOST=$MYSQL_HOST
+      - MYSQL_DATABASE=$MYSQL_DATABASE
+      - MYSQL_USER=$MYSQL_USER
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
+      - NEXTCLOUD_ADMIN_USER=$NEXTCLOUD_ADMIN_USER
+      - NEXTCLOUD_ADMIN_PASSWORD=$NEXTCLOUD_ADMIN_PASSWORD
+      - PUID=1000
+      - PGID=1000
+    devices:
+      - /dev/dri/:/dev/dri/

@@ -1,0 +1,99 @@
+/* Reset básico de CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #232327;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 1em;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 800px;
+    flex-wrap: wrap;
+}
+
+form {
+    background: #333;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 45%;
+    min-width: 300px;
+    margin: 1em;
+}
+
+form h2 {
+    margin-bottom: 1em;
+    font-size: 1.5em;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 1em;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    background: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: darkblue;
+}
+
+.error-message, .success-message {
+    color: white;
+    background: red;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.success-message {
+    background: green;
+}
+
+@media (max-width: 600px) {
+    .form-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    form {
+        width: 100%;
+        max-width: 400px;
+    }
+}
